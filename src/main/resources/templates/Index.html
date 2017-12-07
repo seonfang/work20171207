@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- <meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" /> -->
+<meta charset="UTF-8" />
+<title>主界面</title>
+</head>
+<body>
+	<h1>登陆成功，欢迎您</h1>
+	Logged user: <span sec:authentication="name">Bob</span><br/>
+	Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+	
+	
+	<ul sec:authorize="isAuthenticated()"
+		class="nav navbar-navbar-right">
+		<li><a th:href="@{/logout}">Logout</a></li>
+		<li><a th:href="@{/admin/tt}">权限-拦截</a></li>
+		<li><a th:href="@{/function}">权限-方法</a></li>
+	</ul>
+	<!-- 根据不同ID  -->
+	<span ></span>
+
+</body>
+</html>
